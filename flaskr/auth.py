@@ -70,6 +70,8 @@ def load_logged_in_user():
 	Loads an authenticated user from the session object for use in other views.
 	The user is stored in g global obj to allow usage across the app but limited to
 	the specific session context.
+	before_app_request is used inside a BP instead of before_request to apply this
+	to other views outside this specific BP.
 	"""
 	user_id = session.get('user_id')
 
