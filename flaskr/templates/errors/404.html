@@ -1,0 +1,12 @@
+{% extends 'base.html' %}
+
+{% block header %}
+{% block title %}404 - Not Found{% endblock %}
+{% endblock %}
+
+
+{% block content %}
+<div>
+    The requested post was not found. You can navigate back to posts <a href="{{ url_for("blog.index") }}">here</a>
+</div>
+{% endblock %}

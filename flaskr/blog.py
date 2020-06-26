@@ -1,5 +1,5 @@
 from flask import (
-	Blueprint, g, url_for, request, redirect, render_template, flash
+	Blueprint, g, url_for, request, redirect, render_template, flash, Response
 )
 from werkzeug.exceptions import abort
 
@@ -100,3 +100,13 @@ def delete(id):
 	)
 	db.commit()
 	return redirect(url_for('blog.index'))
+
+
+@bp.errorhandler(404)
+def custom_404(error):
+	return render_template('errors/404.html'), 404
+
+
+@bp.errorhandler(403)
+def custom_403(error):
+	return render_template('errors/403.html'), 403
